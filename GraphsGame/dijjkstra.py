@@ -15,18 +15,18 @@ class Graph:
         D[vertex] = 0
 
         pq = PriorityQueue()
-        pq.put((0, vertice))
+        pq.put((0, vertex))
 
         while not pq.empty():
-            (dist, vertice) = pq.get()
-            graph.visited.append(vertice)
+            (dist, vertex) = pq.get()
+            graph.visited.append(vertex)
 
             for neighbour in range(graph.v):
-                if graph.edges[vertice][neighbour] != -1:
-                    distancia = graph.edges[vertice][neighbour]
-                    if neighbour not in graph.visitado:
+                if graph.edges[vertex][neighbour] != -1:
+                    distance = graph.edges[vertex][neighbour]
+                    if neighbour not in graph.visited:
                         old_cost = D[neighbour]
-                        new_cost = D[vertice] + distancia
+                        new_cost = D[vertex] + distance
                         if new_cost < old_cost:
                             pq.put((new_cost, neighbour))
                             D[neighbour] = new_cost
