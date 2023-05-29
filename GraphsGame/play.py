@@ -32,7 +32,7 @@ class Pathfinder:
 	def create_path(self):
 
 		begin_x, begin_y = self.game.sprite.get_coordinate()
-		inicio = self.grid.node(begin_x,begin_y)
+		begin = self.grid.node(begin_x,begin_y)
 
 		mouse_pos = pygame.mouse.get_pos()
 		end_x,end_y =  mouse_pos[0] // 32, mouse_pos[1] // 32
@@ -40,7 +40,7 @@ class Pathfinder:
 
 		
 		finder = AStarFinder(diagonal_movement = DiagonalMovement.always)
-		self.path,_ = finder.find_path(inicio,end,self.grid)
+		self.path,_ = finder.find_path(begin,end,self.grid)
 		self.grid.cleanup()
 		self.game.sprite.define_path(self.path)
 
